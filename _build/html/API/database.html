@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Database [DB] &#8212; journal 1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
+    <script src="../_static/documentation_options.js?v=29a6c3e3"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tools [dev]" href="tools.html" />
+    <link rel="prev" title="Programming [prg]" href="programming.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="database-db">
+<h1>Database [DB]<a class="headerlink" href="#database-db" title="Link to this heading">¶</a></h1>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Date</p></td>
+<td><p>Competence / Topic</p></td>
+<td><p>Learned Content, Procedure, Problems &amp; Solutions</p></td>
+<td><p>Remarks</p></td>
+</tr>
+<tr class="row-even"><td><p>2025-xx-xx</p></td>
+<td><p>Relational Database</p></td>
+<td><img alt="API/img/rel_database.svg" src="API/img/rel_database.svg" />
+<p>A relational database is structured as follows:</p>
+<ol class="arabic">
+<li><p><strong>Tables:</strong> Store entities (e.g., Customer, Order, Product).
+Each table has:
+- <strong>Rows (Records):</strong> Individual entity instances.
+- <strong>Columns (Fields):</strong> Attributes describing the entity.</p></li>
+<li><p><strong>Primary Keys (PK):</strong> Uniquely identify each row in a table.
+- Example: <cite>customer_id</cite> in the CUSTOMER table.</p></li>
+<li><dl class="simple">
+<dt><strong>Foreign Keys (FK):</strong> Connect tables by referencing primary keys in</dt><dd><p>other tables.</p>
+</dd>
+</dl>
+<ul class="simple">
+<li><p>Example: <cite>customer_id</cite> in ORDER table references CUSTOMER table.</p></li>
+</ul>
+</li>
+<li><p><strong>Relationships:</strong>
+- <strong>One-to-Many (1:N):</strong> One customer can place many orders.
+- <strong>Many-to-Many (M:N):</strong> Orders can include many products; products
+can appear in many orders.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Implemented via a junction table like <cite>ORDER_PRODUCT</cite>.</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>One-to-One (1:1):</strong> Rare; one row corresponds exactly to one row</p></li>
+</ul>
+<p>in another table.</p>
+</li>
+</ol>
+<p>5. <strong>Diagramming:</strong> Use ER diagrams to visualize tables and relationshi
+ps.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Example:
+- CUSTOMER ||–o{ ORDER
+- ORDER ||–o{ ORDER_PRODUCT
+- PRODUCT ||–o{ ORDER_PRODUCT</p></li>
+</ul>
+</div></blockquote>
+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">journal</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="webdev.html">Web Development [web]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programming.html">Programming [prg]</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Database [DB]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools [dev]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="office.html">Office [mso]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mobile.html">Mobile [mob]</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PFE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../PFE/operatingsytem.html">Operatingsystem [OS]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PFE/server.html">Server [srv]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PFE/network.html">Network [net]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PFE/scripts.html">Script [cil]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PFE/virtual.html">Virtualization [vm]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PFE/hardware.html">Hardweare [hw]</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="programming.html" title="previous chapter">Programming [prg]</a></li>
+      <li>Next: <a href="tools.html" title="next chapter">Tools [dev]</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, Yannick Mueller.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.2.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="../_sources/API/database.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
