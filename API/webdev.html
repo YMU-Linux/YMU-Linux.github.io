@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Web Development [web] &#8212; journal 1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
+    <script src="../_static/documentation_options.js?v=29a6c3e3"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Programming [prg]" href="programming.html" />
+    <link rel="prev" title="Lernjournal" href="../index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="web-development-web">
+<h1>Web Development [web]<a class="headerlink" href="#web-development-web" title="Link to this heading">¶</a></h1>
+<section id="titel-progressive-web-apps-pwa">
+<h2>Titel: Progressive Web Apps (PWA)<a class="headerlink" href="#titel-progressive-web-apps-pwa" title="Link to this heading">¶</a></h2>
+<p>Datum: 06-02-2026</p>
+<dl>
+<dt>Content:</dt><dd><p>Progressive Web Apps (PWAs) sind moderne Webanwendungen, die sich wie
+native Apps anfühlen, aber mit Webtechnologien wie HTML, CSS und
+JavaScript entwickelt werden. Ziel ist es, die Vorteile von Websites
+(einfache Verteilung über eine URL, keine Installation notwendig)
+mit den Vorteilen nativer Apps (Offline-Fähigkeit, Installation,
+Push-Benachrichtigungen, Performance) zu kombinieren.</p>
+<p>Eine PWA besteht aus mehreren zentralen Bausteinen:</p>
+<dl>
+<dt>Service Worker</dt><dd><p>Ein Service Worker ist ein JavaScript-File, das im Hintergrund
+läuft und zwischen Anwendung und Netzwerk vermittelt.
+Er kann Requests abfangen und Ressourcen im Cache speichern.
+Dadurch kann die Anwendung auch offline funktionieren oder
+Inhalte deutlich schneller laden.
+Typische Aufgaben:
+- Caching von HTML, CSS, JS und Bildern
+- Offline-Fallback-Seiten bereitstellen
+- Push Notifications verwalten</p>
+</dd>
+<dt>Web App Manifest</dt><dd><p>Das Manifest ist eine JSON-Datei (z.B. manifest.json),
+die Metadaten über die Anwendung enthält.
+Es definiert unter anderem:
+- name und short_name der App
+- Icons in verschiedenen Größen
+- start_url
+- display-Modus (z.B. standalone)
+- theme_color und background_color</p>
+<p>Durch das Manifest erkennt der Browser,
+dass die Website “installierbar” ist.
+Nutzer können die PWA dann wie eine normale App
+auf dem Homescreen speichern.</p>
+<p>Beispiel:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Meine PWA&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;short_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PWA&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;start_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/index.html&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;standalone&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;background_color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#ffffff&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;theme_color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#000000&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;icons&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;src&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;icon-192.png&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;sizes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192x192&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;image/png&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt>HTTPS</dt><dd><p>Eine PWA muss über HTTPS ausgeliefert werden,
+da Service Worker nur in sicheren Kontexten funktionieren.</p>
+</dd>
+<dt>Vorteile von PWAs:</dt><dd><ul class="simple">
+<li><p>Plattformunabhängig (läuft auf Desktop und Mobile)</p></li>
+<li><p>Keine App-Store-Abhängigkeit</p></li>
+<li><p>Offline-Nutzung möglich</p></li>
+<li><p>Schnellere Ladezeiten durch Caching</p></li>
+<li><p>Installierbar wie eine native App</p></li>
+</ul>
+</dd>
+</dl>
+<p>Typische Einsatzgebiete sind Webshops, News-Portale,
+interne Firmen-Tools oder Web-Apps mit wiederkehrenden Nutzern.</p>
+<ul class="simple">
+<li><p>Was habe ich gelernt?
+Aufbau und Funktionsweise von PWAs,
+insbesondere die Rolle von Service Workern
+und dem Web App Manifest.</p></li>
+<li><p>Welche Probleme gab es?
+Verständnis des Lebenszyklus eines Service Workers
+und der richtigen Cache-Strategie.</p></li>
+<li><p>Wie habe ich sie gelöst?
+Durch Analyse von Beispielprojekten und
+schrittweises Testen im Browser (Application-Tab).</p></li>
+<li><p>Nächster Schritt?
+Eine eigene kleine PWA umsetzen
+und Offline-Strategien gezielt konfigurieren.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<hr class="docutils" />
+<section id="c-blazor-server-webassembly-und-hybrid-architektur">
+<h2>C# Blazor – Server, WebAssembly und Hybrid Architektur<a class="headerlink" href="#c-blazor-server-webassembly-und-hybrid-architektur" title="Link to this heading">¶</a></h2>
+<p>Datum: 09-11-2025</p>
+<dl>
+<dt>Content:</dt><dd><p>Blazor ist ein Webframework aus dem ASP.NET-Core-Ökosystem,
+mit dem interaktive Webanwendungen vollständig in C# entwickelt
+werden können. Die UI wird mit Razor-Komponenten (.razor)
+definiert und als Komponentenbaum gerendert.</p>
+<p>Es existieren drei offizielle Hosting-Modelle:</p>
+<dl>
+<dt>Blazor Server</dt><dd><p>Bei Blazor Server läuft die gesamte Anwendungslogik
+auf dem Server. Der Browser erhält eine dynamisch
+aktualisierte UI über eine permanente SignalR-Verbindung.</p>
+<p>Ablauf:
+- Benutzer klickt im Browser
+- Event wird an den Server gesendet
+- Server verarbeitet Logik
+- UI-Diff wird zurück an den Client gesendet</p>
+<dl class="simple">
+<dt>Vorteil:</dt><dd><p>Geringe Initial-Downloadgröße</p>
+</dd>
+<dt>Nachteil:</dt><dd><p>Permanente Serververbindung notwendig</p>
+</dd>
+</dl>
+</dd>
+<dt>Blazor WebAssembly (Client)</dt><dd><p>Bei Blazor WebAssembly wird die .NET-Runtime
+in den Browser geladen (WebAssembly).
+Die Anwendung läuft vollständig clientseitig.
+Backend-Kommunikation erfolgt optional über HTTP APIs.</p>
+<dl class="simple">
+<dt>Vorteil:</dt><dd><p>Keine dauerhafte Verbindung erforderlich</p>
+</dd>
+<dt>Nachteil:</dt><dd><p>Größerer Initial-Download</p>
+</dd>
+</dl>
+</dd>
+<dt>Blazor Hybrid</dt><dd><p>Blazor Hybrid wird typischerweise mit .NET MAUI,
+WPF oder WinForms kombiniert. Die Razor-Komponenten
+werden in einer nativen Anwendung gerendert
+(über ein WebView-Control).</p>
+<dl class="simple">
+<dt>Wichtig:</dt><dd><p>In einer Hybrid-Anwendung laufen Client-Logik
+(UI, Interaktionen) und Server- bzw. Backend-Logik
+parallel innerhalb derselben .NET-Anwendung.
+Es existiert keine klassische Trennung wie
+bei WebAssembly + externem Server.</p>
+</dd>
+<dt>Das bedeutet:</dt><dd><ul class="simple">
+<li><p>UI-Code läuft lokal im Prozess der App</p></li>
+<li><p>Geschäftslogik kann direkt im selben Projekt
+oder über gemeinsame Services genutzt werden</p></li>
+<li><p>Kein Netzwerk-Overhead zwischen UI und Logik</p></li>
+</ul>
+</dd>
+</dl>
+<p>Dadurch eignet sich Hybrid besonders für
+Desktop- und Mobile-Apps mit gemeinsamer C#-Codebasis.</p>
+</dd>
+</dl>
+<p>Beispiel einer Razor-Komponente:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">@page</span><span class="w"> </span><span class="s">&quot;/counter&quot;</span>
+
+<span class="o">&lt;</span><span class="n">h3</span><span class="o">&gt;</span><span class="n">Counter</span><span class="o">&lt;/</span><span class="n">h3</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">Current</span><span class="w"> </span><span class="n">count</span><span class="p">:</span><span class="w"> </span><span class="n">@currentCount</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">button</span><span class="w"> </span><span class="n">@onclick</span><span class="o">=</span><span class="s">&quot;IncrementCount&quot;</span><span class="o">&gt;</span><span class="n">Click</span><span class="w"> </span><span class="n">me</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+
+<span class="n">@code</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">currentCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">IncrementCount</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">currentCount</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Beispiel eines Services (gemeinsame Logik):</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CounterService</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Count</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Increment</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Count</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Registrierung (z.B. in Program.cs):</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">builder</span><span class="p">.</span><span class="n">Services</span><span class="p">.</span><span class="n">AddSingleton</span><span class="o">&lt;</span><span class="n">CounterService</span><span class="o">&gt;</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>In Blazor Hybrid kann dieser Service direkt
+innerhalb der gleichen Anwendung genutzt werden,
+ohne HTTP oder SignalR-Kommunikation.</p>
+<p>Architektur-Vergleich:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Blazor Server:</dt><dd><p>UI-Diff über SignalR
+Server verarbeitet Events</p>
+</dd>
+<dt>Blazor WebAssembly:</dt><dd><p>Runtime im Browser
+API-Aufrufe über HTTP</p>
+</dd>
+<dt>Blazor Hybrid:</dt><dd><p>UI und Logik laufen im selben Prozess
+Gemeinsame Services ohne Netzwerk</p>
+</dd>
+</dl>
+</div></blockquote>
+<ul class="simple">
+<li><p>Was habe ich gelernt?
+Technische Unterschiede der Hosting-Modelle,
+insbesondere die parallele Ausführung von
+UI- und Geschäftslogik in Blazor Hybrid.</p></li>
+<li><p>Welche Probleme gab es?
+Abgrenzung zwischen WebAssembly und Hybrid
+hinsichtlich Laufzeitumgebung.</p></li>
+<li><p>Wie habe ich sie gelöst?
+Analyse der Prozessarchitektur und
+Vergleich der Kommunikationswege.</p></li>
+<li><p>Nächster Schritt?
+Eine kleine MAUI-Blazor-Hybrid-App erstellen
+und Service-Sharing praktisch testen.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<hr class="docutils" />
+<section id="web-socket-example">
+<h2>Web Socket example<a class="headerlink" href="#web-socket-example" title="Link to this heading">¶</a></h2>
+<p>Datum: 2025-05-12</p>
+<p>Content:</p>
+<blockquote>
+<div><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">express</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;express&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">http</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;http&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">WebSocket</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">WebSocketServer</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;ws&#39;</span><span class="p">;</span>
+
+<span class="c1">// Create Express app and HTTP server</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">express</span><span class="p">();</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="nx">app</span><span class="p">);</span>
+
+<span class="c1">// Create WebSocket server</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">wss</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">WebSocketServer</span><span class="p">({</span><span class="w"> </span><span class="nx">server</span><span class="w"> </span><span class="p">});</span>
+
+<span class="c1">// Handle WebSocket connections</span>
+<span class="nx">wss</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">ws</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;New client connected&#39;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Handle incoming messages</span>
+<span class="w">    </span><span class="nx">ws</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Received: </span><span class="si">${</span><span class="nx">message</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Echo message to all connected clients</span>
+<span class="w">        </span><span class="nx">wss</span><span class="p">.</span><span class="nx">clients</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">client</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">client</span><span class="p">.</span><span class="nx">readyState</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">WebSocket</span><span class="p">.</span><span class="nx">OPEN</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">client</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="sb">`Echo: </span><span class="si">${</span><span class="nx">message</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="w">    </span><span class="nx">ws</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;close&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Client disconnected&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">});</span>
+
+<span class="c1">// Basic HTTP route</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">_req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;WebSocket server is running&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// Start server</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">PORT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3000</span><span class="p">;</span>
+<span class="nx">server</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">PORT</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Server listening at http://localhost:</span><span class="si">${</span><span class="nx">PORT</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div></blockquote>
+<hr class="docutils" />
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>DATA MIGRATION IN PROGRESS</strong></p>
+<ul class="simple">
+<li><p>Legacy (old) data will be added gradually over time.</p></li>
+<li><p>This notice will remain visible until all previous data has been fully migrated.</p></li>
+<li><p>Content may continue to update during this transition period.</p></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">journal</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Web Development [web]</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#titel-progressive-web-apps-pwa">Titel: Progressive Web Apps (PWA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#c-blazor-server-webassembly-und-hybrid-architektur">C# Blazor – Server, WebAssembly und Hybrid Architektur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#web-socket-example">Web Socket example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="programming.html">Programming [prg]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database [DB]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools [dev]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="office.html">Office [mso]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mobile.html">Mobile [mob]</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PFE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../PFE/operatingsytem.html">Operatingsystem [OS]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PFE/server.html">Server [srv]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PFE/network.html">Network [net]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PFE/scripts.html">Script [cil]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PFE/virtual.html">Virtualization [vm]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PFE/hardware.html">Hardweare [hw]</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../index.html" title="previous chapter">Lernjournal</a></li>
+      <li>Next: <a href="programming.html" title="next chapter">Programming [prg]</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, Yannick Mueller.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.2.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="../_sources/API/webdev.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

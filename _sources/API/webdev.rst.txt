@@ -1,0 +1,300 @@
+=====================
+Web Development [web]
+=====================
+
+
+Titel: Progressive Web Apps (PWA)
+--------
+Datum: 06-02-2026
+
+Content:
+    Progressive Web Apps (PWAs) sind moderne Webanwendungen, die sich wie
+    native Apps anfühlen, aber mit Webtechnologien wie HTML, CSS und
+    JavaScript entwickelt werden. Ziel ist es, die Vorteile von Websites
+    (einfache Verteilung über eine URL, keine Installation notwendig)
+    mit den Vorteilen nativer Apps (Offline-Fähigkeit, Installation,
+    Push-Benachrichtigungen, Performance) zu kombinieren.
+
+    Eine PWA besteht aus mehreren zentralen Bausteinen:
+
+    Service Worker
+        Ein Service Worker ist ein JavaScript-File, das im Hintergrund
+        läuft und zwischen Anwendung und Netzwerk vermittelt.
+        Er kann Requests abfangen und Ressourcen im Cache speichern.
+        Dadurch kann die Anwendung auch offline funktionieren oder
+        Inhalte deutlich schneller laden.
+        Typische Aufgaben:
+        - Caching von HTML, CSS, JS und Bildern
+        - Offline-Fallback-Seiten bereitstellen
+        - Push Notifications verwalten
+
+    Web App Manifest
+        Das Manifest ist eine JSON-Datei (z.B. manifest.json),
+        die Metadaten über die Anwendung enthält.
+        Es definiert unter anderem:
+        - name und short_name der App
+        - Icons in verschiedenen Größen
+        - start_url
+        - display-Modus (z.B. standalone)
+        - theme_color und background_color
+
+        Durch das Manifest erkennt der Browser,
+        dass die Website "installierbar" ist.
+        Nutzer können die PWA dann wie eine normale App
+        auf dem Homescreen speichern.
+
+        Beispiel:
+
+        .. code-block:: json
+
+            {
+                "name": "Meine PWA",
+                "short_name": "PWA",
+                "start_url": "/index.html",
+                "display": "standalone",
+                "background_color": "#ffffff",
+                "theme_color": "#000000",
+                "icons": [
+                    {
+                        "src": "icon-192.png",
+                        "sizes": "192x192",
+                        "type": "image/png"
+                    }
+                ]
+            }
+
+    HTTPS
+        Eine PWA muss über HTTPS ausgeliefert werden,
+        da Service Worker nur in sicheren Kontexten funktionieren.
+
+    Vorteile von PWAs:
+        - Plattformunabhängig (läuft auf Desktop und Mobile)
+        - Keine App-Store-Abhängigkeit
+        - Offline-Nutzung möglich
+        - Schnellere Ladezeiten durch Caching
+        - Installierbar wie eine native App
+
+    Typische Einsatzgebiete sind Webshops, News-Portale,
+    interne Firmen-Tools oder Web-Apps mit wiederkehrenden Nutzern.
+
+    - Was habe ich gelernt?
+      Aufbau und Funktionsweise von PWAs,
+      insbesondere die Rolle von Service Workern
+      und dem Web App Manifest.
+
+    - Welche Probleme gab es?
+      Verständnis des Lebenszyklus eines Service Workers
+      und der richtigen Cache-Strategie.
+
+    - Wie habe ich sie gelöst?
+      Durch Analyse von Beispielprojekten und
+      schrittweises Testen im Browser (Application-Tab).
+
+    - Nächster Schritt?
+      Eine eigene kleine PWA umsetzen
+      und Offline-Strategien gezielt konfigurieren.
+
+----------------------------------------
+
+
+C# Blazor – Server, WebAssembly und Hybrid Architektur
+------------------
+Datum: 09-11-2025
+
+Content:
+    Blazor ist ein Webframework aus dem ASP.NET-Core-Ökosystem,
+    mit dem interaktive Webanwendungen vollständig in C# entwickelt
+    werden können. Die UI wird mit Razor-Komponenten (.razor)
+    definiert und als Komponentenbaum gerendert.
+
+    Es existieren drei offizielle Hosting-Modelle:
+
+    Blazor Server
+        Bei Blazor Server läuft die gesamte Anwendungslogik
+        auf dem Server. Der Browser erhält eine dynamisch
+        aktualisierte UI über eine permanente SignalR-Verbindung.
+
+        Ablauf:
+        - Benutzer klickt im Browser
+        - Event wird an den Server gesendet
+        - Server verarbeitet Logik
+        - UI-Diff wird zurück an den Client gesendet
+
+        Vorteil:
+            Geringe Initial-Downloadgröße
+
+        Nachteil:
+            Permanente Serververbindung notwendig
+
+    Blazor WebAssembly (Client)
+        Bei Blazor WebAssembly wird die .NET-Runtime
+        in den Browser geladen (WebAssembly).
+        Die Anwendung läuft vollständig clientseitig.
+        Backend-Kommunikation erfolgt optional über HTTP APIs.
+
+        Vorteil:
+            Keine dauerhafte Verbindung erforderlich
+
+        Nachteil:
+            Größerer Initial-Download
+
+    Blazor Hybrid
+        Blazor Hybrid wird typischerweise mit .NET MAUI,
+        WPF oder WinForms kombiniert. Die Razor-Komponenten
+        werden in einer nativen Anwendung gerendert
+        (über ein WebView-Control).
+
+        Wichtig:
+            In einer Hybrid-Anwendung laufen Client-Logik
+            (UI, Interaktionen) und Server- bzw. Backend-Logik
+            parallel innerhalb derselben .NET-Anwendung.
+            Es existiert keine klassische Trennung wie
+            bei WebAssembly + externem Server.
+
+        Das bedeutet:
+            - UI-Code läuft lokal im Prozess der App
+            - Geschäftslogik kann direkt im selben Projekt
+              oder über gemeinsame Services genutzt werden
+            - Kein Netzwerk-Overhead zwischen UI und Logik
+
+        Dadurch eignet sich Hybrid besonders für
+        Desktop- und Mobile-Apps mit gemeinsamer C#-Codebasis.
+
+    Beispiel einer Razor-Komponente:
+
+    .. code-block:: csharp
+
+        @page "/counter"
+
+        <h3>Counter</h3>
+
+        <p>Current count: @currentCount</p>
+
+        <button @onclick="IncrementCount">Click me</button>
+
+        @code {
+            private int currentCount = 0;
+
+            private void IncrementCount()
+            {
+                currentCount++;
+            }
+        }
+
+    Beispiel eines Services (gemeinsame Logik):
+
+    .. code-block:: csharp
+
+        public class CounterService
+        {
+            public int Count { get; private set; }
+
+            public void Increment()
+            {
+                Count++;
+            }
+        }
+
+    Registrierung (z.B. in Program.cs):
+
+    .. code-block:: csharp
+
+        builder.Services.AddSingleton<CounterService>();
+
+    In Blazor Hybrid kann dieser Service direkt
+    innerhalb der gleichen Anwendung genutzt werden,
+    ohne HTTP oder SignalR-Kommunikation.
+
+    Architektur-Vergleich:
+
+        Blazor Server:
+            UI-Diff über SignalR
+            Server verarbeitet Events
+
+        Blazor WebAssembly:
+            Runtime im Browser
+            API-Aufrufe über HTTP
+
+        Blazor Hybrid:
+            UI und Logik laufen im selben Prozess
+            Gemeinsame Services ohne Netzwerk
+
+    - Was habe ich gelernt?
+      Technische Unterschiede der Hosting-Modelle,
+      insbesondere die parallele Ausführung von
+      UI- und Geschäftslogik in Blazor Hybrid.
+
+    - Welche Probleme gab es?
+      Abgrenzung zwischen WebAssembly und Hybrid
+      hinsichtlich Laufzeitumgebung.
+
+    - Wie habe ich sie gelöst?
+      Analyse der Prozessarchitektur und
+      Vergleich der Kommunikationswege.
+
+    - Nächster Schritt?
+      Eine kleine MAUI-Blazor-Hybrid-App erstellen
+      und Service-Sharing praktisch testen.
+
+----------------------------------------
+
+Web Socket example
+-------------
+Datum: 2025-05-12
+
+Content:
+
+    .. code-block:: js
+
+        import express from 'express';
+        import http from 'http';
+        import WebSocket, { WebSocketServer } from 'ws';
+
+        // Create Express app and HTTP server
+        const app = express();
+        const server = http.createServer(app);
+
+        // Create WebSocket server
+        const wss = new WebSocketServer({ server });
+
+        // Handle WebSocket connections
+        wss.on('connection', (ws) => {
+            console.log('New client connected');
+
+            // Handle incoming messages
+            ws.on('message', (message) => {
+                console.log(`Received: ${message}`);
+
+                // Echo message to all connected clients
+                wss.clients.forEach(client => {
+                    if (client.readyState === WebSocket.OPEN) {
+                        client.send(`Echo: ${message}`);
+                    }
+                });
+            });
+
+            ws.on('close', () => {
+                console.log('Client disconnected');
+            });
+        });
+
+        // Basic HTTP route
+        app.get('/', (_req, res) => {
+            res.send('WebSocket server is running');
+        });
+
+        // Start server
+        const PORT = 3000;
+        server.listen(PORT, () => {
+            console.log(`Server listening at http://localhost:${PORT}`);
+        });
+
+----------------------------------------
+
+.. important::
+
+   **DATA MIGRATION IN PROGRESS**
+
+   - Legacy (old) data will be added gradually over time.
+   - This notice will remain visible until all previous data has been fully migrated.
+   - Content may continue to update during this transition period.

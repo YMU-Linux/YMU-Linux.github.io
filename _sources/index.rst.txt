@@ -1,0 +1,33 @@
+Lernjournal
+===================================
+
+This is my (yannick Muellers) Lernjournal
+
+this Journal is not jet fully uptodate please be patient
+
+.. toctree::
+   :maxdepth: 2
+   :caption: API
+
+   API/webdev
+   API/programming
+   API/database
+   API/tools
+   API/office
+   API/mobile
+
+.. toctree::
+   :maxdepth: 2
+   :caption: ITS
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: PFE
+
+   PFE/operatingsytem
+   PFE/server
+   PFE/network
+   PFE/scripts
+   PFE/virtual
+   PFE/hardware
